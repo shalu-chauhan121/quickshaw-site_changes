@@ -503,6 +503,8 @@ body {
   font-weight: 700;
   color: #000;
   background: #ffae00;
+  border:0;
+  outline:0;
   border-radius: 12px;
   text-decoration: none;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
@@ -510,9 +512,4 @@ body {
 
 .globalCtaBtn:hover {
   background: #ffb933;
-  transform: translateY(-2px);
-}
-
-.globalCtaBtn:active {
-  transform: translateY(0);
 }

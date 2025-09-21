@@ -196,7 +196,97 @@ export default function ReportPage() {
             </svg>
           </div>
         </section>
-      )}
+      )} 
+        {/* safety section  */}
+          
+          <section className={styles.safetyWrap}>
+  <div className={styles.safetyBlock}>
+    <div className={styles.safetyText}>
+      <h2 className={styles.safetyH2}>
+        <span className={styles.block}>Top safe</span>
+        <span className={styles.block}>now</span>
+        </h2>
+      <div className={styles.safetyTextDiv}>
+      <p className={styles.safetyP}>
+        Your ride comes with more than just wheels. It comes with trust in
+        verified drivers,care built into every details,care built into every detail, &
+        a constant watch over your journey to ensure your safety.
+      </p>
+</div>
+    </div>
+    <div className={styles.safetyImg}>
+      <Image
+        src="/safety-app.png"
+        alt="QuickShaw app safety screen"
+        width={300}
+        height={100}
+      />
+    </div>
+  </div>
+  {/* <div className={styles.safetyBg}>
+    <Image 
+    src="/safetybg.png"
+    alt="Quickshaw app safety screen"
+    fill
+    style={{objectFit:"cover"}}
+    />
+  </div> */}
+</section>
+
+  <section className={styles.safetyWrap}>
+  <div className={styles.safetyBlock}>
+    <div className={styles.safetyText}>
+      <h2 className={styles.safetyH2}>
+       <span className={styles.block}>share</span>
+       <span className={styles.block}>your ride</span>
+        </h2>
+      <div className={styles.safetyTextDiv}>
+      <p className={styles.safetyP}>
+        Before your ride begins, your peace of mind is set, share your trip
+        instantly, let loved ones track your journey, and travel knowing someone
+        always has an eye out for you.
+      </p>
+      </div>
+    </div>
+    <div className={styles.safetyImg}>
+      <Image
+        src="/share-ride.png"
+        alt="QuickShaw trusted driver"
+        width={460}
+        height={360}
+      />
+    </div>
+  </div>
+
+</section>
+
+      <section className={styles.safetyWrap}>
+  <div className={styles.safetyBlock}>
+    <div className={styles.safetyText}>
+      <h2 className={styles.safetyH2}>
+       <span className={styles.block}>trusted</span>
+       <span className={styles.block}>drivers</span>
+        </h2>
+      <div className={styles.safetyTextDiv}>
+      <p className={styles.safetyP}>
+        Before your ride arrives, your safety is already taken care of,
+        with verified profiles, live monitoring, & safeguards built to keep
+        every journey worry free.
+      </p>
+      </div>
+    </div>
+    <div className={styles.safetyImg}>
+      <Image
+        src="/trusted-driver.png"
+        alt="QuickShaw trusted driver"
+        width={460}
+        height={360}
+      />
+    </div>
+  </div>
+</section>
+
+
 
       {toast && (
         <div
@@ -207,28 +297,7 @@ export default function ReportPage() {
           {toast.msg}
         </div>
       )}
-
-      {/* Safety Section */}
-      <section className={styles.safetySection}>
-        <div className={styles.safetyContent}>
-          <h2 className={styles.safetyTitle}>Tap safe now</h2>
-          <p className={styles.safetyText}>
-            Your ride comes with more than just wheels, it comes with trust in
-            verified drivers, care built into every detail, & a constant watch
-            over your journey to ensure your safety.
-          </p>
-        </div>
-        <div className={styles.safetyImage}>
-          <Image
-            src="/tap-safe.png" // put the screenshot file in /public as tap-safe.png
-            alt="Tap Safe feature"
-            width={350}
-            height={500}
-            priority
-          />
-        </div>
-      </section>
-
+           
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <div className={styles.brandFoot}>
