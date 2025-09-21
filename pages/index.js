@@ -31,7 +31,7 @@ export default function Home() {
   const [showDropDD, setShowDropDD] = useState(false);
 
   // ------- highlights slider (s1..s5) -------
-  const slides = ["/s1.png", "/s2.png", "/s3.png", "/s4.png", "/s5.png"];
+  const slides = ["/s1.png", "/s2.png", "/s3.png", "/s4.png", "/s5.png", "/s6.png"];
   const [slide, setSlide] = useState(0);
 
   // autoplay every 4.5s
@@ -244,8 +244,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---- Highlights slider (s1 → s5) ---- */}
-        {/* ---- Highlights slider (s1 → s5) ---- */}
+        {/* ---- Highlights slider (s1 → s6) ---- */}
+        {/* ---- Highlights slider (s1 → s6) ---- */}
         <section className={styles.highlights} aria-label="Highlights">
           <div className={styles.highlightsInner}>
             <div className={styles.highlightsTrack}>
@@ -258,7 +258,7 @@ export default function Home() {
                     priority={i === 0}
                     sizes="(max-width: 768px) 80vw, 320px"
                   />
-                  <Link href="/offerings">
+                  <Link href={`/offerings#offering-${i+1}`}>
                     <button>Know More →</button>
                   </Link>
                 </div>
@@ -598,10 +598,6 @@ export default function Home() {
                 <a href="#about" className={styles.footLink}>
                   About us
                 </a>
-                <Link href="/privacy-policy" className={styles.footLink}>
-                  Privacy Policy
-                </Link>
-
                 <div className={styles.footSocial}>
                   <a
                     aria-label="WhatsApp"
@@ -637,14 +633,11 @@ export default function Home() {
 
               <div className={styles.footCol}>
                 <Link href="/customer_terms" className={styles.footLink}>
-                  Customer terms - Autos
+                  Terms &amp; Conditions
                 </Link>
-                {/* <a href="/terms/customer-autos" className={styles.footLink}>
-                  Customer terms - Autos
-                </a> */}
-                <a href="/terms/driver-autos" className={styles.footLink}>
-                  Driver terms - Autos
-                </a>
+                <Link href="/privacy-policy" className={styles.footLink}>
+                  Privacy Policy
+                </Link>
               </div>
             </div>
           </div>

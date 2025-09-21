@@ -1,30 +1,35 @@
 /* Container & Main */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap");
+
 .container {
   background-color: #4b5563; /* gray-600 */
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  /* padding: 2rem; */
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .main {
-  width: 100%;
-  max-width: 900px;
+  width: 100vw;
   background: #fff;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+.heading {
+  padding: 2% 0%;
+}
+
 /* Inner content */
 .content {
-  padding: 3rem 2rem;
+  padding: 2% 25%;
 }
 
 .content h1 {
-  font-family: Georgia, serif;
-  font-size: 2.5rem;
+  font-family: "Archivo", sans-serif;
+  font-size: 500%;
   text-align: center;
   color: #4a2b14;
   margin-bottom: 1.5rem;
@@ -39,15 +44,15 @@
 }
 
 .content section {
-  max-width: 700px;
+  /* max-width: 700px; */
   margin: 0 auto;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   line-height: 1.75;
   color: #2d2d2d;
 }
 
 .content h2 {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #4a2b14;
   margin-top: 2rem;
@@ -76,4 +81,89 @@
 .content a {
   color: #2563eb;
   text-decoration: underline;
+}
+
+/* ===== Footer (compact, aligned like screenshot 2) ===== */
+/* ===== Footer (final, like screenshot) ===== */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 56px 0 64px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footerInner {
+  max-width: min(1280px, 92vw);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+
+.footBrand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.brandLogo {
+  height: 56px;
+  width: auto;
+}
+
+.brandWord {
+  color: #ffae00;
+  font-family: Inter, system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(28px, 4.2vw, 56px);
+}
+
+.footCols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.footLink:hover {
+  text-decoration: underline;
+}
+
+.footSocial {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.footSocial img {
+  width: 32px;
+  height: 32px;
+}
+
+.footBadges {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.footBadges img {
+  height: 48px;
+  width: auto;
+}
+
+.footDivider {
+  width: 1px;
+  background: #333;
 }

@@ -8,6 +8,10 @@ export default function PrivacyPolicy() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
+        <style>
+          @import
+          url(https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap);
+        </style>
         {/* Topbar */}
         <div className={offeringsStyles.topbar}>
           <div className={offeringsStyles.topbarInner}>
@@ -40,11 +44,12 @@ export default function PrivacyPolicy() {
 
         {/* Inner content */}
         <div className={styles.content}>
-          <h1>Privacy Policy</h1>
-          <p>
-            <em>Last updated: 17th September 2025</em>
-          </p>
-
+          <div className={styles.heading}>
+            <h1>Privacy Policy</h1>
+            <p>
+              <em>Last updated: 17th September 2025</em>
+            </p>
+          </div>
           <section>
             <p>
               QuickShaw Mobility Private Limited (<strong>QuickShaw</strong>,
@@ -332,21 +337,71 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Footer (reused from Offerings) */}
-        <div className={offeringsStyles.topbar}>
-          <div className={offeringsStyles.topbarInner}>
-            <span style={{ color: "#fff", fontSize: "0.9rem" }}>
-              © {new Date().getFullYear()} QuickShaw. All rights reserved.
-            </span>
-            <nav className={offeringsStyles.menu}>
-              <Link href="/privacy-policy" className={offeringsStyles.link}>
-                Privacy Policy
-              </Link>
-              <Link href="/customer_terms" className={offeringsStyles.link}>
-                Terms
-              </Link>
-            </nav>
+        <footer className={styles.footer} id="footer">
+          <div className={styles.footerInner}>
+            <div className={styles.footBrand}>
+              <img
+                src="/quickshaw-logo1.png"
+                alt="QuickShaw logo"
+                className={styles.brandLogo}
+              />
+              <span className={styles.brandWord}>QuickShaw</span>
+            </div>
+
+            <div className={styles.footCols}>
+              {/* Left column */}
+              <div className={styles.footCol}>
+                <Link href="/" className={styles.footLink}>
+                  Home
+                </Link>
+                <Link href="/" className={styles.footLink}>
+                  About us
+                </Link>
+                <div className={styles.footSocial}>
+                  <a
+                    aria-label="WhatsApp"
+                    href="https://chat.whatsapp.com/LZASDXueL0b0L7plUBIz3k"
+                  >
+                    <img src="/whatsapp.png" alt="WhatsApp" />
+                  </a>
+                  <a
+                    aria-label="Instagram"
+                    href="https://www.instagram.com/quickshaw.co.in/"
+                  >
+                    <img src="/insta.png" alt="Instagram" />
+                  </a>
+                  <a
+                    aria-label="LinkedIn"
+                    href="https://www.linkedin.com/company/quickshaw/"
+                  >
+                    <img src="/linkedin.png" alt="LinkedIn" />
+                  </a>
+                </div>
+
+                <div className={styles.footBadges}>
+                  <a href="#">
+                    <img src="/google-play.png" alt="Get it on Google Play" />
+                  </a>
+                  <a href="#">
+                    <img src="/app-store.png" alt="Download on the App Store" />
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.footDivider} aria-hidden="true" />
+
+              {/* Right column */}
+              <div className={styles.footCol}>
+                <Link href="/customer_terms" className={styles.footLink}>
+                  Terms &amp; Conditions
+                </Link>
+                <Link href="/privacy-policy" className={styles.footLink}>
+                  Privacy Policy
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </footer>
       </main>
     </div>
   );

@@ -6,7 +6,6 @@ import Link from "next/link";
 
 /** Coded slide (#2): “Go Everywhere” (o2) */
 function GoEverywhereSlide() {
-  // 1..6 → map-1.png … map-6.png
   const [active, setActive] = useState(1);
 
   const chipSet1 = [
@@ -24,11 +23,8 @@ function GoEverywhereSlide() {
     { icon: "/icon9.png", label: "KVT" },
   ];
 
-  
-
   return (
     <div className={styles.o2Stage}>
-      {/* translucent map background */}
       <div className={styles.o2MapWrap} aria-hidden="true">
         <Image
           src={`/map-${active}.png`}
@@ -41,10 +37,8 @@ function GoEverywhereSlide() {
         <div className={styles.o2Fade} />
       </div>
 
-      {/* left content */}
       <div className={styles.o2Content}>
         <h2 className={styles.o2H}>Go Everywhere</h2>
-
         <p className={styles.o2Sub}>
           Travel across 350+ locations in IIT BHU and some of the key hotspots
           in Varanasi.
@@ -108,14 +102,11 @@ function RideShareSlide({ pax, setPax, mode, setMode, min = 1, max = 5 }) {
   return (
     <div className={styles.o5Card}>
       <div className={styles.o5Grid}>
-        {/* (Optional) Illustration area */}
         <div className={styles.o5Art} aria-hidden="true" />
 
-        {/* Right column: UI */}
         <div className={styles.o5Right}>
           <h2 className={styles.o5Title}>Travel with people</h2>
 
-          {/* Mode pills (now selectable) */}
           <div
             className={styles.o5Modes}
             role="tablist"
@@ -151,7 +142,6 @@ function RideShareSlide({ pax, setPax, mode, setMode, min = 1, max = 5 }) {
             </button>
           </div>
 
-          {/* Counter control */}
           <div
             className={styles.o5Counter}
             role="group"
@@ -192,10 +182,7 @@ function RideShareSlide({ pax, setPax, mode, setMode, min = 1, max = 5 }) {
             </button>
           </div>
 
-          {/* Dynamic message */}
           <p className={styles.o5Msg}>{msg}</p>
-
-          {/* Body copy */}
           <p className={styles.o5Copy}>
             Travelling together with people helps save money as well as earth.
             You help reduce 65 grams carbon emissions by sharing your ride with
@@ -208,28 +195,24 @@ function RideShareSlide({ pax, setPax, mode, setMode, min = 1, max = 5 }) {
 }
 
 export default function Offerings() {
-
   const handleBookRide = () => {
-    window.location.href = "/"; // full reload → always goes home
+    window.location.href = "/";
   };
-  // Slides: o1 image, o2 coded, o3 image, o4 image, o6 image, o5 coded
+
   const slides = [
     { type: "image", src: "/o1.png" },
-    { type: "component", key: "o2" },
-    { type: "image", src: "/o3.png" },
-    { type: "image", src: "/o4.png" },
+    {type: "component", key: "o2" },
+    {type: "image", src: "/o3.png" },
+    {type: "image", src: "/o4.png" },
+    {type: "image", src: "/o5.png" },
     { type: "image", src: "/o6.png" },
-    { type: "component", key: "rideshare" },
+    {type:"component", key : ""}
   ];
 
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
-
-  // state for coded slide
   const [pax, setPax] = useState(1);
   const [mode, setMode] = useState("e-auto");
-
-  // natural dims only for image slides (stored by index)
   const [dims, setDims] = useState({});
 
   useEffect(() => {
@@ -257,7 +240,17 @@ export default function Offerings() {
     };
   }, [slides]);
 
-  // autoplay with reduced-motion respect
+  // Auto-jump if hash is present
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash.startsWith("#offering-")) {
+        const num = parseInt(hash.replace("#offering-", ""), 10) - 1;
+        if (!isNaN(num)) setSlide(num);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     const prefersReduced = window.matchMedia?.(
       "(prefers-reduced-motion: reduce)"
@@ -276,6 +269,7 @@ export default function Offerings() {
         <title>QuickShaw — Offerings</title>
         <meta name="description" content="What we offer at QuickShaw." />
       </Head>
+
       {/* Topbar */}
       <div className={styles.topbar}>
         <div className={styles.topbarInner}>
@@ -328,7 +322,12 @@ export default function Offerings() {
             aria-live="polite"
           >
             {slides.map((s, i) => (
-              <div className={styles.slide} key={i} aria-hidden={i !== slide}>
+              <div
+                id={`offering-${i + 1}`} // 🔗 anchor target
+                className={styles.slide}
+                key={i}
+                aria-hidden={i !== slide}
+              >
                 {s.type === "image" ? (
                   <Image
                     src={s.src}
@@ -371,6 +370,7 @@ export default function Offerings() {
             ›
           </button>
         </div>
+
         <div className={styles.dots} role="tablist" aria-label="Choose slide">
           {slides.map((_, i) => (
             <button
@@ -385,11 +385,11 @@ export default function Offerings() {
           ))}
         </div>
 
-<div className={styles.globalCtaWrap}>
-  <button onClick={handleBookRide} className={styles.globalCtaBtn}>
-    Book ride now
-  </button>
-</div>
+        <div className={styles.globalCtaWrap}>
+          <button onClick={handleBookRide} className={styles.globalCtaBtn}>
+            Book ride now
+          </button>
+        </div>
       </section>
     </>
   );
