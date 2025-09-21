@@ -317,10 +317,6 @@ export default function CustomerAutosTerms() {
               <a href="/about" className={styles.footLink}>
                 About us
               </a>
-              <Link href="/privacy-policy" className={styles.footLink}>
-                Privacy Policy
-              </Link>
-
               <div className={styles.footSocial}>
                 <a
                   aria-label="WhatsApp"
@@ -356,11 +352,10 @@ export default function CustomerAutosTerms() {
 
             <div className={styles.footCol}>
               <Link href="/customer_terms">
-                <span className={styles.footLink}>Customer terms - Autos</span>
+                <span className={styles.footLink}>Terms &amp; Conditions</span>
               </Link>
-
-              <Link href="/customer_terms">
-                <span className={styles.footLink}>Driver terms - Autos</span>
+              <Link href="/privacy-policy" className={styles.footLink}>
+                Privacy Policy
               </Link>
             </div>
           </div>
